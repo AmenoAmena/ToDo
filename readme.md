@@ -1,0 +1,1 @@
+This is an django project with Crate Read Update and Delete shortly CRUD
