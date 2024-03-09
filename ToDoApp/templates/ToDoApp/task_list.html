@@ -5,13 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks</title>
+    <style>
+        ul li, ul button, ul form {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            margin-right: 20px; 
+        }
+        button {
+            margin-left: 20px; 
+        }   
+</style>
 </head>
 <body>
     <h2>Tasks <i class="fa-solid fa-list-check"></i></h2>
     {% for task in tasks %}
         <ul>
             <li> {{ task.task }} </li>
+            <form action="{% url 'delete' task.id %}" method="post">
+                {% csrf_token %}         
+                <button type="submit"><i class="fa-solid fa-trash"></i></button>
+        </form>
         </ul>
     {% endfor %}
+    <a href="{% url 'tasks' %}"></a>
+
 </body>
 </html>

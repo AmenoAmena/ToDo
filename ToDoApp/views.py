@@ -18,3 +18,8 @@ def task_list(request):
     return render(request, 'ToDoApp/task_list.html',{
         'tasks':tasks
     })
+
+def delete(request,id):
+    task = Task.objects.get(pk=id)
+    task.delete()
+    return redirect('tasks')
