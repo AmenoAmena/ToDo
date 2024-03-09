@@ -4,13 +4,14 @@
     <script src="https://kit.fontawesome.com/b461c2f143.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add task</title>
+    <title>Tasks</title>
 </head>
 <body>
-    <form action="" method="post" autocomplete="off">
-        {% csrf_token %}
-        {{form}}
-        <button type="submit">Add <i class="fa-solid fa-plus"> </i> </button>
-    </form>
+    <h2>Tasks <i class="fa-solid fa-list-check"></i></h2>
+    {% for task in tasks %}
+        <ul>
+            <li> {{ task.task }} </li>
+        </ul>
+    {% endfor %}
 </body>
 </html>
